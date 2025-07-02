@@ -3,6 +3,7 @@
   ansible.builtin.shell:
     cmd: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
     creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+  become: no
 
 - name: Source nvm and install latest node
   ansible.builtin.shell:
@@ -10,3 +11,4 @@
       . "{{ ansible_env.HOME }}/.nvm/nvm.sh"
       nvm install node
     creates: "{{ ansible_env.HOME }}/.nvm/versions/node"
+  become: no
