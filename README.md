@@ -10,3 +10,4 @@ This repository contains my personal Ansible playbooks for setting up various to
 - `gemini`: Google Gemini Python library installation.
 - `ansible-lint`: Ansible Lint installation.
 - `gemini-cli`: Gemini CLI installation.
+- `conda`: Conda installation and setup for deep learning.

@@ -1,2 +1,14 @@
 # .gitignore
 # Add any files or directories to ignore here.
+
+# Ignore Miniconda installer
+Miniconda3-latest-Linux-x86_64.sh
+
+# Ignore inventory files
+inventory.ini
+
+# Ignore Ansible retry files
+*.retry
+
+# Ignore temporary files
+somoething

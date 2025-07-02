@@ -1,0 +1,27 @@
+- name: Install Conda
+  shell: |
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh
+    bash /tmp/miniconda.sh -b -p {{ ansible_env.HOME }}/miniconda
+    rm /tmp/miniconda.sh
+  args:
+    creates: "{{ ansible_env.HOME }}/miniconda"
+
+- name: Add Conda to PATH
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: 'export PATH="{{ ansible_env.HOME }}/miniconda/bin:$PATH"'
+    create: yes
+
+- name: Install deep learning packages
+  pip:
+    executable: "{{ ansible_env.HOME }}/miniconda/bin/pip"
+    name:
+      - torch
+      - torchvision
+      - torchaudio
+      - jupyter
+      - numpy
+      - pandas
+      - scikit-learn
+      - matplotlib
+      - seaborn
