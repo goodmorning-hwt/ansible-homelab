@@ -1,0 +1,6 @@
+---
+- name: Install gemini-cli globally using npm
+  community.general.npm:
+    name: gemini-cli
+    global: yes
+    state: present

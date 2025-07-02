@@ -9,3 +9,4 @@ This repository contains Ansible playbooks for setting up various tools and conf
 - `x-cmd`: X-CMD tool installation.
 - `gemini`: Google Gemini Python library installation.
 - `ansible-lint`: Ansible Lint installation.
+- `gemini-cli`: Gemini CLI installation.
