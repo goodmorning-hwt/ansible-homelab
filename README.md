@@ -1,6 +1,6 @@
 # Ansible Playbooks
 
-This repository contains Ansible playbooks for setting up various tools and configurations.
+This repository contains my personal Ansible playbooks for setting up various tools and configurations.
 
 ## Roles:
 - `common`: Common system configurations.
