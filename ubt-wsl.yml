@@ -6,3 +6,4 @@
     - { role: nvm, become: no }
     - { role: uv, become: no }
     - { role: x-cmd, become: no }
+    - { role: gemini, become: no }

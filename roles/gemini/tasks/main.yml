@@ -1,0 +1,5 @@
+---
+- name: Install google-generative-ai Python library
+  pip:
+    name: google-generative-ai
+    state: present
