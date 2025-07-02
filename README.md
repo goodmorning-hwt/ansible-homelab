@@ -8,3 +8,4 @@ This repository contains Ansible playbooks for setting up various tools and conf
 - `uv`: UV tool installation.
 - `x-cmd`: X-CMD tool installation.
 - `gemini`: Google Gemini Python library installation.
+- `ansible-lint`: Ansible Lint installation.
