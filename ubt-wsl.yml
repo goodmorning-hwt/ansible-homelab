@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   roles:
-    - common
-    - nvm
-    - uv
-    - x-cmd
+    - { role: common, become: yes }
+    - { role: nvm, become: no }
+    - { role: uv, become: no }
+    - { role: x-cmd, become: no }

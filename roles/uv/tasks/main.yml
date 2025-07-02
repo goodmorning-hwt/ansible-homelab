@@ -3,4 +3,3 @@
   ansible.builtin.shell:
     cmd: curl -LsSf https://astral.sh/uv/install.sh | sh
     creates: "{{ ansible_env.HOME }}/.cargo/bin/uv"
-  become: no
