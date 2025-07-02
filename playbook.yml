@@ -1,0 +1,8 @@
+---
+- hosts: wsl
+  become: yes
+  roles:
+    - common
+    - nvm
+    - uv
+    - x-cmd

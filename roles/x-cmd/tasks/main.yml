@@ -1,0 +1,5 @@
+---
+- name: Install x-cmd
+  ansible.builtin.shell:
+    cmd: curl -fsSL https://get.x-cmd.com/install.sh | sh
+    creates: "{{ ansible_env.HOME }}/.x-cmd/bin/x"

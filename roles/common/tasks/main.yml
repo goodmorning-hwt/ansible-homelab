@@ -1,0 +1,16 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+  become: yes
+
+- name: Install common packages
+  ansible.builtin.apt:
+    name:
+      - git
+      - build-essential
+      - python3-pip
+      - curl
+      - htop
+    state: present
+  become: yes
