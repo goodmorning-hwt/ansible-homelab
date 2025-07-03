@@ -51,13 +51,30 @@ The role creates a modular configuration structure:
 
 ## Customization
 
-The modular structure makes it easy to customize:
+The modular structure and variables make it easy to customize:
 
 - **Add custom aliases**: Edit `~/.config/zsh/aliases.zsh`
 - **Modify prompt**: Edit `~/.config/zsh/spaceship.zsh`
-- **Adjust history**: Edit `~/.config/zsh/history.zsh`
-- **Change environment**: Edit `~/.config/zsh/environment.zsh`
-- **Override settings**: Create `~/.zshrc.local` for local customizations
+- **Adjust history**: Edit `~/.config/zsh/history.zsh` or set `zsh_histfile`, `zsh_histsize`, `zsh_savehist` variables.
+- **Change environment**: Edit `~/.config/zsh/environment.zsh` or set `zsh_editor` variable.
+- **Override settings**: Create `~/.zshrc.local` for local customizations.
+- **Antidote installation**: Customize `antidote_repo_url` and `antidote_install_dir`.
+- **Default shell change**: Control with `zsh_change_default_shell`.
+
+## Variables
+
+The following variables can be set in your playbook or inventory to customize the Zsh role:
+
+| Variable                     | Default Value                               | Description                                                              |
+|------------------------------|---------------------------------------------|--------------------------------------------------------------------------|
+| `antidote_repo_url`          | `"https://github.com/mattmc3/antidote.git"` | URL of the Antidote plugin manager Git repository.                       |
+| `antidote_install_dir`       | `"{{ ansible_env.HOME }}/.antidote"`        | Directory where Antidote will be cloned.                                 |
+| `zsh_histfile`               | `"~/.zsh_history"`                          | Path to the Zsh history file.                                            |
+| `zsh_histsize`               | `10000`                                     | Maximum number of history entries to keep in memory.                     |
+| `zsh_savehist`               | `10000`                                     | Maximum number of history entries to save to the history file.           |
+| `zsh_editor`                 | `"vim"`                                     | Default editor to be set in Zsh.                                         |
+| `zsh_backup_existing`        | `true`                                      | Whether to backup an existing `.zshrc` file before creating a new one.   |
+| `zsh_change_default_shell`   | `true`                                      | Whether to change the default user shell to Zsh after installation.      |
 
 ## Requirements
 

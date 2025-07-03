@@ -13,5 +13,8 @@ inventory.ini
 # Ignore temporary files
 something
 
+# Ignore Zsh history file
+.zsh_history
+
 # Ignore chezmoi archive
 chezmoi.tar.gz

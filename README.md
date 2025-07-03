@@ -18,4 +18,4 @@ ansible-playbook  ubt-wsl.yml --ask-become-pass
 - `gemini-cli`: Gemini CLI installation.
 - `conda`: Conda installation and setup for deep learning.
 - `chezmoi`: Chezmoi dotfile manager installation.
-- `zsh`: Zsh shell and plugin management, with conditional p10k installation.
+- `zsh`: Installs and configures Zsh, including plugin management with Antidote and optional Powerlevel10k theme setup.
