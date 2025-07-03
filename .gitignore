@@ -11,4 +11,7 @@ inventory.ini
 *.retry
 
 # Ignore temporary files
-somoething
+something
+
+# Ignore chezmoi archive
+chezmoi.tar.gz

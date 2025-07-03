@@ -1,0 +1,22 @@
+---
+# Default variables for zsh role
+
+# Antidote repository URL
+antidote_repo_url: "https://github.com/mattmc3/antidote.git"
+
+# Antidote installation directory
+antidote_install_dir: "{{ ansible_env.HOME }}/.antidote"
+
+# Zsh history settings
+zsh_histfile: "~/.zsh_history"
+zsh_histsize: 10000
+zsh_savehist: 10000
+
+# Default editor
+zsh_editor: "vim"
+
+# Whether to backup existing .zshrc
+zsh_backup_existing: true
+
+# Whether to change default shell to zsh
+zsh_change_default_shell: true

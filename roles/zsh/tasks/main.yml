@@ -1,0 +1,58 @@
+---
+- name: Install zsh
+  package:
+    name: zsh
+    state: present
+  become: yes
+
+- name: Check if antidote is installed
+  stat:
+    path: "{{ ansible_env.HOME }}/.antidote"
+  register: antidote_installed
+
+- name: Clone antidote repository
+  git:
+    repo: https://github.com/mattmc3/antidote.git
+    dest: "{{ ansible_env.HOME }}/.antidote"
+    version: main
+  when: not antidote_installed.stat.exists
+
+- name: Create .zshrc with antidote configuration
+  template:
+    src: zshrc.j2
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    backup: yes
+    mode: '0644'
+
+- name: Check if p10k config exists
+  stat:
+    path: "{{ ansible_env.HOME }}/.p10k.zsh"
+  register: p10k_config_exists
+
+- name: Create .zsh_plugins.txt for antidote
+  template:
+    src: zsh_plugins.txt.j2
+    dest: "{{ ansible_env.HOME }}/.zsh_plugins.txt"
+    mode: '0644'
+  when: not p10k_config_exists.stat.exists
+
+- name: Check current shell
+  shell: echo $SHELL
+  register: current_shell
+  changed_when: false
+
+- name: Change default shell to zsh
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+  become: yes
+  when: current_shell.stdout != "/usr/bin/zsh"
+
+- name: Verify zsh installation
+  command: zsh --version
+  register: zsh_version
+  changed_when: false
+
+- name: Display zsh version
+  debug:
+    msg: "Zsh version: {{ zsh_version.stdout }}"

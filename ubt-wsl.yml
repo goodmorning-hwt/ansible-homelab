@@ -8,3 +8,6 @@
     - { role: x-cmd, become: no }
     - { role: gemini-cli, become: no }
     - { role: conda, become: no }
+    - { role: ansible-lint, become: no }
+    - { role: chezmoi, become: no }
+    - { role: zsh, become: no }

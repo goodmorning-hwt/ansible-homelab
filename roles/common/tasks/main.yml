@@ -14,3 +14,34 @@
       - htop
     state: present
   become: yes
+
+- name: Install locales package
+  ansible.builtin.apt:
+    name: locales
+    state: present
+  become: yes
+
+- name: Generate locale
+  ansible.builtin.locale_gen:
+    name: en_US.UTF-8
+    state: present
+  become: yes
+
+- name: Set default locale
+  ansible.builtin.lineinfile:
+    path: /etc/default/locale
+    regexp: '^LANG='
+    line: 'LANG=en_US.UTF-8'
+    create: yes
+  become: yes
+
+- name: Set additional locale environment variables
+  ansible.builtin.lineinfile:
+    path: /etc/default/locale
+    regexp: '^{{ item.key }}='
+    line: '{{ item.key }}={{ item.value }}'
+    create: yes
+  become: yes
+  loop:
+    - { key: 'LC_ALL', value: 'en_US.UTF-8' }
+    - { key: 'LANGUAGE', value: 'en_US:en' }

@@ -1,0 +1,12 @@
+---
+- name: Install chezmoi
+  ansible.builtin.shell:
+    cmd: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/chezmoi"
+
+- name: Initialize chezmoi with user's repository
+  ansible.builtin.command:
+    cmd: "{{ ansible_env.HOME }}/.local/bin/chezmoi init --apply goodmorning-hwt/chezmoi-config"
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/share/chezmoi/.git"
